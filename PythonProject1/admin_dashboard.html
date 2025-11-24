@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="page">
+  <main class="card fade">
+    <h2>Admin Dashboard</h2>
+    <div class="muted">Welcome, {{ session.get('username') }}</div>
+
+    <section>
+      <h3>Display Products</h3>
+      <form method="post" action="{{ url_for('admin_add_product') }}" class="form-inline">
+        <input name="name" placeholder="Product name" required>
+        <input name="price" placeholder="Price" type="number" step="0.01" required>
+        <button class="btn" type="submit">Add</button>
+      </form>
+
+      <table class="table">
+        <thead><tr><th>Name</th><th>Price</th><th>Actions</th></tr></thead>
+        <tbody>
+          {% for p in products %}
+          <tr>
+            <td>{{ p.name }}</td>
+            <td>${{ p.price }}</td>
+            <td>
+              <form style="display:inline" method="post" action="{{ url_for('admin_delete_product', product_id=p.id) }}">
+                <button class="btn ghost" type="submit">Delete</button>
+              </form>
+              <!-- Update: simple inline update -->
+              <form style="display:inline" method="post" action="{{ url_for('admin_update_product', product_id=p.id) }}">
+                <input name="name" placeholder="new name" required>
+                <input name="price" placeholder="new price" type="number" step="0.01" required>
+                <button class="btn" type="submit">Update</button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h3>Display Customers Info</h3>
+      <ul>
+        {% for c in customers %}
+          <li>{{ c.username }}</li>
+        {% else %}
+          <li>No customers yet.</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <div class="btn-row">
+      <a class="btn ghost" href="{{ url_for('logout') }}">Logout</a>
+    </div>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

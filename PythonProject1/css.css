@@ -1,0 +1,51 @@
+/* style.css - clean, modern, simple transitions */
+:root{
+  --bg1:#f3f6fd; --bg2:#eef2fb; --card:#ffffff; --accent:#1766ef; --muted:#6b7280;
+  --success:#16a34a; --danger:#ef4444;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;}
+body{
+  background: linear-gradient(120deg,var(--bg1),var(--bg2));
+  display:flex;align-items:center;justify-content:center;padding:36px;
+}
+.page{width:100%;max-width:980px}
+.card{
+  background:var(--card);border-radius:12px;padding:28px;box-shadow:0 12px 40px rgba(22,34,57,0.08);
+  transition:transform .28s ease, box-shadow .28s ease, opacity .32s ease;
+}
+.btn-row{display:flex;gap:12px;justify-content:center;margin-top:16px}
+.btn{
+  display:inline-block;padding:10px 16px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;
+  border:0;cursor:pointer;transition:transform .14s ease, box-shadow .14s ease;
+}
+.btn:hover{transform:translateY(-3px); box-shadow: 0 8px 20px rgba(23,102,239,0.18)}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(23,102,239,0.12)}
+.link{font-size:14px;color:var(--muted);text-decoration:underline}
+.form input, .form-inline input{
+  width:100%;padding:10px;border-radius:10px;border:1px solid #e6edf6;margin:8px 0;
+}
+.form-inline{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.table{width:100%;border-collapse:collapse;margin-top:12px}
+.table th, .table td{padding:10px;border-bottom:1px solid #f0f3f8;text-align:left}
+.product-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:12px}
+.product{background:#fbfdff;padding:12px;border-radius:10px;border:1px solid #f1f6ff}
+.title{font-weight:700}
+.muted{color:var(--muted);font-size:13px}
+.error{color:var(--danger);margin:8px 0}
+.fade{opacity:0;animation:fadeIn .6s .08s forwards}
+.slide-left{opacity:0;transform:translateX(-24px);animation:slideLeft .48s forwards}
+.slide-right{opacity:0;transform:translateX(24px);animation:slideRight .48s forwards}
+.slide-up{opacity:0;transform:translateY(20px);animation:slideUp .48s forwards}
+
+@keyframes fadeIn{to{opacity:1}}
+@keyframes slideLeft{to{opacity:1;transform:none}}
+@keyframes slideRight{to{opacity:1;transform:none}}
+@keyframes slideUp{to{opacity:1;transform:none}}
+
+/* responsive */
+@media (max-width:700px){
+  .form-inline{flex-direction:column}
+  .page{padding:12px}
+  .card{padding:18px}
+}
