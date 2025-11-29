@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Choose Role</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Georgia, serif;
+        background: linear-gradient(to right, #ff2d2d, #ff8f4d);
+    }
+    .center-card {
+        width: 60%;
+        margin: 80px auto;
+        padding: 40px;
+        background: #f7d68b;
+        border-radius: 30px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        text-align: center;
+    }
+    .role-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+        gap: 40px;
+    }
+    .role-box {
+        width: 200px;
+        padding: 30px;
+        border-radius: 25px;
+        cursor: pointer;
+        box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        transition: transform 0.2s;
+        text-align: center;
+    }
+    .role-box:hover { transform: scale(1.05); }
+    .admin { background: #ff4d4d; }
+    .customer { background: #ff995a; }
+    .icon { width: 60px; }
+</style>
+
+<script>
+function selectRole(role) {
+    if (role === 'admin') {
+        window.location.href = "/admin-auth/";
+    } else {
+        window.location.href = "/login/";
+    }
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="center-card">
+    <h1>Are You an Admin or a Customer?</h1>
+
+    <div class="role-container">
+        <div class="role-box admin" onclick="selectRole('admin')">
+            <img src="/static/icons/admin.png" class="icon">
+            <p>Admin</p>
+        </div>
+
+        <div class="role-box customer" onclick="selectRole('customer')">
+            <img src="/static/icons/customer.png" class="icon">
+            <p>Customer</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
