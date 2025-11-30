@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="page-title">Products</div>
+
+  <div class="controls">
+    <div class="pill">All</div>
+    <div class="pill">Categories ▾</div>
+    <div class="search">Search product here 🔎</div>
+    <a href="#" class="btn">Add Product</a>
+  </div>
+
+  <!-- Example products table -->
+  <table>
+    <thead>
+      <tr><th>Product</th><th>Category</th><th>Stock</th><th>Price</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Wireless Headphones</td><td>Audio</td><td>24</td><td>$59.99</td></tr>
+      <tr><td>Smartphone X</td><td>Mobile</td><td>12</td><td>$399.00</td></tr>
+      <tr><td>USB-C Charger</td><td>Accessories</td><td>130</td><td>$14.50</td></tr>
+    </tbody>
+  </table>
+{% endblock %}

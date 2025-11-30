@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="page-title">Orders</div>
+
+  <div class="controls">
+    <div class="pill">All</div>
+    <div class="pill">Categories ▾</div>
+    <div class="search">Search orders here 🔎</div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Order #</th><th>Customer</th><th>Status</th><th>Total</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>#1001</td><td>Juan D.</td><td>Shipped</td><td>$128.00</td></tr>
+      <tr><td>#1002</td><td>Maricar A.</td><td>Processing</td><td>$59.99</td></tr>
+    </tbody>
+  </table>
+{% endblock %}
