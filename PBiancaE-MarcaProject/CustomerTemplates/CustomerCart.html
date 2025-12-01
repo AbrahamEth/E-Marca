@@ -1,0 +1,25 @@
+<h2>{{ name }}'s Cart</h2>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>Item Name</th>
+        <th>Price (₱)</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+    </tr>
+
+    {% for item in items %}
+    <tr>
+        <td>{{ item.name }}</td>
+        <td>{{ item.price }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.price * item.quantity }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h3>Total: ₱{{ total }}</h3>
+
+<a href="/customer/dashboard">Back to Dashboard</a>
+
+
